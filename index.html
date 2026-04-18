@@ -91,6 +91,28 @@
         /* --- FOOTER --- */
         footer { background: var(--san-anchor); color: #ccc; padding: 40px 0; text-align: center; font-size: 0.9rem; }
 
+        /* --- WHATSAPP FLOATING BUTTON --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: #FFF;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+        
+
         /* --- MOBILE RESPONSIVE LOGIC --- */
         @media (max-width: 900px) {
             .nav-desktop { display: none; }
@@ -242,5 +264,12 @@
             hamburgerBtn.addEventListener('click', toggleMenu);
         }
     </script>
+    <a href="https://wa.me/919943789434?text=Hello%20Dr.%20Ashretha,%20I%20am%20interested%20in%20learning%20more%20about%20the%20courses%20at%20SAN%20Educare." class="whatsapp-float" target="_blank" rel="noopener noreferrer">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="35" height="35" fill="white">
+        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-23.2-115-65.1-157zM223.9 414.8c-32 0-63.1-8.3-90.6-24.1l-6.5-3.8-67.2 17.6 18-65.6-4.2-6.7c-17.5-27.9-26.7-60.2-26.7-93.1 0-103.6 84.4-188 188.1-188 55.4 0 107.4 21.6 146.6 60.8 39.1 39.2 60.8 91.2 60.8 146.6-.1 103.7-84.5 188.3-188.2 188.3zm102.7-140.2c-5.6-2.8-33.4-16.5-38.6-18.4-5.2-1.9-9-.2-12.7 5.2-3.8 5.6-14.6 18.4-18 22.2-3.3 3.8-6.6 4.2-12.2 1.4-5.6-2.8-23.8-8.8-45.3-27.9-16.7-14.8-28-33.1-31.3-38.6-3.3-5.6-.4-8.6 2.4-11.4 2.5-2.5 5.6-6.6 8.5-9.9 2.8-3.3 3.8-5.6 5.6-9.4 1.9-3.8.9-7.1-.5-9.9-1.4-2.8-12.7-30.6-17.4-41.9-4.6-11.1-9.3-9.6-12.7-9.8-3.3-.2-7.1-.2-10.8-.2-3.8 0-9.9 1.4-15.1 7.1-5.2 5.6-19.8 19.3-19.8 47.1 0 27.8 20.3 54.6 23.1 58.3 2.8 3.8 39.8 60.8 96.3 85.2 13.4 5.6 23.9 9 32.1 11.5 13.5 4.3 25.8 3.7 35.5 2.2 10.9-1.6 33.4-13.7 38.1-26.9 4.6-13.2 4.6-24.5 3.3-26.9-1.4-2.5-5.2-3.9-10.8-6.7z"/>
+    </svg>
+    </a>
+    
+    
 </body>
 </html>
