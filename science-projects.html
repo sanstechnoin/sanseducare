@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Overseas Education Consulting | SAN Educare</title>
+    <title>Life Science Projects | SAN Educare</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     
     <style>
         /* --- CSS VARIABLES --- */
@@ -14,7 +15,7 @@
             --dark: #333333;
             --light: #f8f9fa;
             --white: #ffffff;
-            --container-width: 1000px; /* Slightly narrower for readability on text pages */
+            --container-width: 1000px;
         }
 
         * { box-sizing: border-box; }
@@ -27,22 +28,35 @@
         
         .container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; width: 100%; }
 
-        /* --- HEADER (Reused from Index) --- */
+        /* --- HEADER & LOGO --- */
         header { background: var(--white); height: 90px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.08); display: flex; align-items: center; }
         .header-content { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-        .logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 1.8rem; }
-        .logo .brand-san { color: var(--san-anchor); }
-        .logo .brand-edu { color: var(--primary); font-weight: 600; }
+        
+        .logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 1.8rem; text-decoration: none; }
+        .logo img { max-height: 55px; width: auto; display: block; }
         
         .nav-desktop ul { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; }
         .nav-desktop a { font-weight: 600; font-size: 0.95rem; position: relative; color: #555; }
         .nav-desktop a:hover { color: var(--primary); }
 
+        /* --- DESKTOP DROPDOWN LOGIC --- */
+        .dropdown { position: relative; display: inline-block; padding-bottom: 10px; margin-bottom: -10px; }
+        .dropdown-content { display: none; position: absolute; background-color: var(--white); min-width: 250px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); z-index: 1000; border-radius: 8px; top: 100%; left: -20px; overflow: hidden; border: 1px solid #eee; }
+        .dropdown-content a { color: var(--dark); padding: 12px 20px; text-decoration: none; display: block; font-size: 0.95rem; border-bottom: 1px solid #f5f5f5; }
+        .dropdown-content a:after { display: none; }
+        .dropdown-content a:last-child { border-bottom: none; }
+        .dropdown-content a:hover { background-color: #f0fdf4; color: var(--primary); padding-left: 25px; }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        /* --- MOBILE MENU --- */
         .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; z-index: 1001; }
         .bar { width: 25px; height: 3px; background-color: var(--san-anchor); transition: 0.3s; border-radius: 2px; }
-        .mobile-menu { position: fixed; top: 90px; left: 0; width: 100%; background: var(--white); box-shadow: 0 10px 10px rgba(0,0,0,0.1); padding: 20px; transform: translateY(-150%); transition: transform 0.3s ease-in-out; text-align: center; z-index: 999; display: flex; flex-direction: column; gap: 20px; }
+        .mobile-menu { position: fixed; top: 90px; left: 0; width: 100%; background: var(--white); box-shadow: 0 10px 10px rgba(0,0,0,0.1); padding: 20px; transform: translateY(-150%); transition: transform 0.3s ease-in-out; text-align: center; z-index: 999; display: flex; flex-direction: column; gap: 20px; justify-content: flex-start; overflow-y: auto; max-height: 80vh; }
         .mobile-menu.active { transform: translateY(0); }
+        .mobile-menu ul { list-style: none; padding: 0; margin: 0; width: 100%; }
         .mobile-menu a { font-size: 1.2rem; font-weight: bold; color: var(--dark); display: block; padding: 10px; }
+        .mobile-dropdown-header { font-size: 1.2rem; font-weight: bold; color: var(--san-anchor); margin-top: 15px; border-bottom: 2px solid var(--primary); padding-bottom: 5px; display: inline-block; }
+        .mobile-sub-link { font-size: 1.05rem !important; font-weight: normal !important; color: #555 !important; padding: 8px !important; }
 
         /* --- SUBPAGE HERO --- */
         .page-hero { background: linear-gradient(135deg, var(--san-anchor) 0%, #022c22 100%); color: var(--white); text-align: center; padding: 80px 20px; margin-bottom: 50px; }
@@ -81,18 +95,29 @@
     <header>
         <div class="container header-content">
             <a href="index.html" class="logo">
-                <span class="brand-san">SAN</span> <span class="brand-edu">Educare</span>
+                <img src="san_e_logo.png" alt="SAN Educare Logo">
             </a>
+            
             <div class="nav-desktop">
                 <nav>
                     <ul>
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="overseas-consulting.html" style="color: var(--primary);">Overseas Consulting</a></li>
-                        <li><a href="neet-tuition.html">Science & NEET</a></li>
-                        <li><a href="science-projects.html">Life Science Projects</a></li>
+                        <li><a href="index.html#about">Meet the Founder</a></li>
+                        
+                        <li class="dropdown">
+                            <a style="cursor: pointer; color: var(--primary);">Our Expertise &#9662;</a>
+                            <div class="dropdown-content">
+                                <a href="overseas-consulting.html">🌍 Overseas Consulting</a>
+                                <a href="neet-tuition.html">🧬 Science & NEET Tuition</a>
+                                <a href="science-projects.html" style="color: var(--primary); font-weight: bold;">🔬 Life Science Projects</a>
+                            </div>
+                        </li>
+                        
+                        <li><a href="mailto:ashretha@sanseducare.in">Contact</a></li>
                     </ul>
                 </nav>
             </div>
+
             <div class="hamburger" id="hamburgerBtn">
                 <div class="bar"></div><div class="bar"></div><div class="bar"></div>
             </div>
@@ -100,13 +125,20 @@
     </header>
 
     <div class="mobile-menu" id="mobileMenu">
-        <a href="index.html">Home</a>
-        <a href="overseas-consulting.html" style="color: var(--primary);">Overseas Consulting</a>
-        <a href="neet-tuition.html">Science & NEET</a>
-        <a href="science-projects.html">Life Science Projects</a>
+        <ul>
+            <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+            <li><a href="index.html#about" onclick="toggleMenu()">Meet the Founder</a></li>
+            
+            <li><span class="mobile-dropdown-header">Our Expertise</span></li>
+            <li><a href="overseas-consulting.html" class="mobile-sub-link" onclick="toggleMenu()">Overseas Consulting</a></li>
+            <li><a href="neet-tuition.html" class="mobile-sub-link" onclick="toggleMenu()">Science & NEET Tuition</a></li>
+            <li><a href="science-projects.html" class="mobile-sub-link" style="color: var(--primary) !important; font-weight: bold !important;" onclick="toggleMenu()">Life Science Projects</a></li>
+            
+            <li style="margin-top: 15px;"><a href="mailto:ashretha@sanseducare.in" onclick="toggleMenu()" style="color: var(--primary);">Contact Us</a></li>
+        </ul>
     </div>
 
-        <div class="page-hero">
+    <div class="page-hero">
         <div class="container">
             <h1>Advanced Life Science Projects.</h1>
             <p>Hands-on guidance for engineering and high-level academic science projects.</p>
@@ -128,7 +160,7 @@
 
             <div class="price-box">
                 <h4>Project Guidance</h4>
-                <p>Starting from ₹ 2,500 (Varies based on project complexity and required resources)</p>
+                <p>Starting from ₹ 5,000 (Varies based on project complexity and required resources)</p>
             </div>
 
             <p style="text-align: center; margin-top: 40px;">
