@@ -111,6 +111,31 @@
 .whatsapp-float:hover {
     transform: scale(1.1);
 }
+
+                /* --- HERO SLIDER --- */
+        .showcase { padding: 0; position: relative; overflow: hidden; margin-top: 0; }
+        .slider-wrapper { display: flex; width: 100%; transition: transform 0.6s ease-in-out; }
+        .slide { min-width: 100%; padding: 80px 20px; box-sizing: border-box; display: flex; align-items: center; min-height: 65vh; color: var(--white); text-align: center; justify-content: center; flex-direction: column; }
+        
+        /* Slide Colors matching SAN Educare Branding */
+        .slide-1 { background: linear-gradient(135deg, var(--san-anchor) 0%, #022c22 100%); }
+        .slide-2 { background: linear-gradient(135deg, #047857 0%, #064e3b 100%); }
+        .slide-3 { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); }
+
+        .slide-tag { font-size: 0.9rem; color: #34d399; font-weight: 800; margin-bottom: 15px; letter-spacing: 2px; text-transform: uppercase; background: rgba(0,0,0,0.2); padding: 5px 15px; border-radius: 20px; display: inline-block; }
+        .slide h1 { font-size: 3.2rem; line-height: 1.2; margin-bottom: 20px; max-width: 900px; }
+        .slide p { font-size: 1.2rem; opacity: 0.95; max-width: 700px; margin-bottom: 30px; font-weight: 300; line-height: 1.6; }
+        
+        .slider-nav { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); padding: 0 20px; pointer-events: none; }
+        .slider-btn { background: rgba(255,255,255,0.1); color: var(--white); border: 1px solid rgba(255,255,255,0.3); width: 50px; height: 50px; border-radius: 50%; font-size: 24px; cursor: pointer; pointer-events: auto; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
+        .slider-btn:hover { background: var(--primary); border-color: var(--primary); }
+
+        @media (max-width: 900px) {
+            .slide h1 { font-size: 2.2rem; }
+            .slide { min-height: 55vh; padding: 60px 15px; }
+            .slider-btn { width: 40px; height: 40px; font-size: 18px; }
+            .slider-nav { padding: 0 10px; }
+        }
         
 
         /* --- MOBILE RESPONSIVE LOGIC --- */
@@ -164,14 +189,38 @@
         </ul>
     </div>
 
-    <section class="hero">
-        <div class="container">
-            <span class="hero-intro">Empowering Your Academic Journey</span>
-            <h1>Your One-Stop Destination <br>for Future Career Solutions.</h1>
-            <p>From intensive science tutoring to overseas university consulting, we provide loving care, support, and strategic guidance to students of all backgrounds.</p>
-            <a href="#services" class="btn">Explore Our Programs</a>
+        <section id="hero-slider" class="showcase">
+        <div class="slider-wrapper" id="sliderWrapper">
+            
+            <div class="slide slide-1">
+                <span class="slide-tag">Global Education</span>
+                <h1>Your Gateway to Universities in Europe & UK.</h1>
+                <p>Get expert counseling and admission guidance directly from a PhD scholar who navigated the German academic system.</p>
+                <a href="#services" class="btn">Explore Consulting</a>
+            </div>
+
+            <div class="slide slide-2">
+                <span class="slide-tag">Academic Excellence</span>
+                <h1>Master Science & Crack NEET 2024.</h1>
+                <p>Intensive physics and biology tutoring for CBSE and State Board. Learn the logic of science from a dedicated researcher.</p>
+                <a href="#services" class="btn">View Tuitions</a>
+            </div>
+
+            <div class="slide slide-3">
+                <span class="slide-tag">Advanced Learning</span>
+                <h1>Specialized Life Science & Engineering Projects.</h1>
+                <p>Hands-on guidance in Immunology, Microbiology, Bioinformatics, and Biotechnology to give your career a massive head start.</p>
+                <a href="#services" class="btn">View Projects</a>
+            </div>
+
+        </div>
+
+        <div class="slider-nav">
+            <button class="slider-btn prev" onclick="moveSlide(-1); stopSlideShow();">&#10094;</button>
+            <button class="slider-btn next" onclick="moveSlide(1); stopSlideShow();">&#10095;</button>
         </div>
     </section>
+
 
     <section id="services" class="container">
         <div class="section-header">
@@ -269,6 +318,35 @@
         <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-23.2-115-65.1-157zM223.9 414.8c-32 0-63.1-8.3-90.6-24.1l-6.5-3.8-67.2 17.6 18-65.6-4.2-6.7c-17.5-27.9-26.7-60.2-26.7-93.1 0-103.6 84.4-188 188.1-188 55.4 0 107.4 21.6 146.6 60.8 39.1 39.2 60.8 91.2 60.8 146.6-.1 103.7-84.5 188.3-188.2 188.3zm102.7-140.2c-5.6-2.8-33.4-16.5-38.6-18.4-5.2-1.9-9-.2-12.7 5.2-3.8 5.6-14.6 18.4-18 22.2-3.3 3.8-6.6 4.2-12.2 1.4-5.6-2.8-23.8-8.8-45.3-27.9-16.7-14.8-28-33.1-31.3-38.6-3.3-5.6-.4-8.6 2.4-11.4 2.5-2.5 5.6-6.6 8.5-9.9 2.8-3.3 3.8-5.6 5.6-9.4 1.9-3.8.9-7.1-.5-9.9-1.4-2.8-12.7-30.6-17.4-41.9-4.6-11.1-9.3-9.6-12.7-9.8-3.3-.2-7.1-.2-10.8-.2-3.8 0-9.9 1.4-15.1 7.1-5.2 5.6-19.8 19.3-19.8 47.1 0 27.8 20.3 54.6 23.1 58.3 2.8 3.8 39.8 60.8 96.3 85.2 13.4 5.6 23.9 9 32.1 11.5 13.5 4.3 25.8 3.7 35.5 2.2 10.9-1.6 33.4-13.7 38.1-26.9 4.6-13.2 4.6-24.5 3.3-26.9-1.4-2.5-5.2-3.9-10.8-6.7z"/>
     </svg>
     </a>
+        <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const sliderWrapper = document.getElementById('sliderWrapper');
+        let slideInterval;
+
+        function moveSlide(n) {
+            currentSlide = (currentSlide + n + slides.length) % slides.length;
+            sliderWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+
+        function startSlideShow() {
+            stopSlideShow(); 
+            slideInterval = setInterval(() => { moveSlide(1); }, 5000); 
+        }
+
+        function stopSlideShow() { 
+            clearInterval(slideInterval); 
+        }
+
+        const showcaseSection = document.getElementById('hero-slider');
+        if (showcaseSection) {
+            showcaseSection.addEventListener('mouseenter', stopSlideShow);
+            showcaseSection.addEventListener('mouseleave', startSlideShow);
+            showcaseSection.addEventListener('touchstart', stopSlideShow);
+            showcaseSection.addEventListener('touchend', startSlideShow);
+            startSlideShow(); 
+        }
+        </script>
     
     
 </body>
