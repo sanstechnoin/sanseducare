@@ -1,0 +1,156 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overseas Education Consulting | SAN Educare</title>
+    
+    <style>
+        /* --- CSS VARIABLES --- */
+        :root {
+            --san-anchor: #0F172A; 
+            --primary: #047857; 
+            --accent: #059669; 
+            --dark: #333333;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --container-width: 1000px; /* Slightly narrower for readability on text pages */
+        }
+
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: var(--dark); line-height: 1.6; background-color: var(--light); overflow-x: hidden; }
+        h1, h2, h3 { font-weight: 700; margin-bottom: 15px; margin-top: 0; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        p { margin: 0 0 20px 0; font-size: 1.1rem; color: #555; }
+        ul { margin: 0 0 20px 20px; padding: 0; color: #555; font-size: 1.1rem; }
+        li { margin-bottom: 10px; }
+        
+        .container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; width: 100%; }
+
+        /* --- HEADER (Reused from Index) --- */
+        header { background: var(--white); height: 90px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.08); display: flex; align-items: center; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 1.8rem; }
+        .logo .brand-san { color: var(--san-anchor); }
+        .logo .brand-edu { color: var(--primary); font-weight: 600; }
+        
+        .nav-desktop ul { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; }
+        .nav-desktop a { font-weight: 600; font-size: 0.95rem; position: relative; color: #555; }
+        .nav-desktop a:hover { color: var(--primary); }
+
+        .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; z-index: 1001; }
+        .bar { width: 25px; height: 3px; background-color: var(--san-anchor); transition: 0.3s; border-radius: 2px; }
+        .mobile-menu { position: fixed; top: 90px; left: 0; width: 100%; background: var(--white); box-shadow: 0 10px 10px rgba(0,0,0,0.1); padding: 20px; transform: translateY(-150%); transition: transform 0.3s ease-in-out; text-align: center; z-index: 999; display: flex; flex-direction: column; gap: 20px; }
+        .mobile-menu.active { transform: translateY(0); }
+        .mobile-menu a { font-size: 1.2rem; font-weight: bold; color: var(--dark); display: block; padding: 10px; }
+
+        /* --- SUBPAGE HERO --- */
+        .page-hero { background: linear-gradient(135deg, var(--san-anchor) 0%, #022c22 100%); color: var(--white); text-align: center; padding: 80px 20px; margin-bottom: 50px; }
+        .page-hero h1 { font-size: 2.8rem; line-height: 1.2; margin-bottom: 15px; }
+        .page-hero p { color: #d1fae5; font-size: 1.2rem; max-width: 700px; margin: 0 auto; }
+
+        /* --- CONTENT BODY --- */
+        .content-section { background: var(--white); padding: 50px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 50px; }
+        .content-section h2 { color: var(--san-anchor); font-size: 2rem; border-bottom: 2px solid #eee; padding-bottom: 15px; margin-bottom: 30px; }
+        .content-section h3 { color: var(--primary); font-size: 1.4rem; margin-top: 30px; }
+        
+        .price-box { background: #f0fdf4; border-left: 4px solid var(--primary); padding: 20px; margin: 30px 0; border-radius: 0 8px 8px 0; }
+        .price-box h4 { color: var(--primary); margin-bottom: 5px; font-size: 1.2rem; }
+        .price-box p { margin: 0; color: var(--dark); font-weight: bold; }
+
+        .btn { display: inline-block; background: var(--primary); color: var(--white); padding: 15px 40px; border-radius: 50px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(4, 120, 87, 0.3); text-align: center; }
+        .btn:hover { background-color: var(--accent); }
+
+        /* --- WHATSAPP WIDGET --- */
+        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25D366; color: #FFF; border-radius: 50%; box-shadow: 0 4px 15px rgba(0,0,0,0.15); z-index: 1000; display: flex; align-items: center; justify-content: center; transition: transform 0.3s ease; }
+        .whatsapp-float:hover { transform: scale(1.1); }
+
+        footer { background: var(--san-anchor); color: #ccc; padding: 40px 0; text-align: center; font-size: 0.9rem; }
+
+        @media (max-width: 900px) {
+            .nav-desktop { display: none; }
+            .hamburger { display: flex; }
+            .page-hero { padding: 50px 15px; }
+            .page-hero h1 { font-size: 2rem; }
+            .content-section { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <span class="brand-san">SAN</span> <span class="brand-edu">Educare</span>
+            </a>
+            <div class="nav-desktop">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="overseas-consulting.html" style="color: var(--primary);">Overseas Consulting</a></li>
+                        <li><a href="neet-tuition.html">Science & NEET</a></li>
+                        <li><a href="science-projects.html">Life Science Projects</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="hamburger" id="hamburgerBtn">
+                <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+            </div>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="overseas-consulting.html" style="color: var(--primary);">Overseas Consulting</a>
+        <a href="neet-tuition.html">Science & NEET</a>
+        <a href="science-projects.html">Life Science Projects</a>
+    </div>
+
+    <div class="page-hero">
+        <div class="container">
+            <h1>Study, Work & Settle in Europe & UK.</h1>
+            <p>Expert, end-to-end guidance from a PhD scholar who successfully navigated the European academic system.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="content-section">
+            <h2>Your Bridge to Global Education</h2>
+            <p>Choosing to study abroad is one of the most critical decisions in a student's life. The process can be overwhelming, filled with complex documentation, visa regulations, and university selections. At SAN Educare, we provide a massive advantage: you aren't talking to a generic sales agent; you are consulting directly with Dr. Ashretha Avinash, a scientist with extensive firsthand experience in the German and European academic sectors.</p>
+            
+            <h3>Our Comprehensive Process</h3>
+            <ul>
+                <li><strong>Profile Evaluation:</strong> Deep analysis of your academic background to choose the most appropriate bachelor's, master's, or doctorate path.</li>
+                <li><strong>University Selection:</strong> Counseling on study programs across all disciplines in top-tier European and UK institutions.</li>
+                <li><strong>Documentation & Application:</strong> Hands-on assistance with SOPs (Statement of Purpose), Letters of Recommendation, and application submissions.</li>
+                <li><strong>Visa Assistance:</strong> Guidance through the complex visa application process to ensure zero errors.</li>
+                <li><strong>Pre-Departure Briefing:</strong> Real-world advice on what to expect living and studying abroad, directly from someone who has lived it.</li>
+            </ul>
+
+            <div class="price-box">
+                <h4>Consultation Packages</h4>
+                <p>₹ 10,000 to ₹ 20,000 (Depending on course selection and application depth)</p>
+            </div>
+
+            <p style="text-align: center; margin-top: 40px;">
+                <a href="https://wa.me/4922519599741?text=Hello%20Dr.%20Ashretha,%20I%20need%20details%20on%20Overseas%20Consulting." target="_blank" class="btn">Chat on WhatsApp to Start</a>
+            </p>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 SAN Technologies. All rights reserved for SAN Educare.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/4922519599741?text=Hello%20Dr.%20Ashretha,%20I%20have%20an%20inquiry." class="whatsapp-float" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="35" height="35" fill="white"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-23.2-115-65.1-157zM223.9 414.8c-32 0-63.1-8.3-90.6-24.1l-6.5-3.8-67.2 17.6 18-65.6-4.2-6.7c-17.5-27.9-26.7-60.2-26.7-93.1 0-103.6 84.4-188 188.1-188 55.4 0 107.4 21.6 146.6 60.8 39.1 39.2 60.8 91.2 60.8 146.6-.1 103.7-84.5 188.3-188.2 188.3zm102.7-140.2c-5.6-2.8-33.4-16.5-38.6-18.4-5.2-1.9-9-.2-12.7 5.2-3.8 5.6-14.6 18.4-18 22.2-3.3 3.8-6.6 4.2-12.2 1.4-5.6-2.8-23.8-8.8-45.3-27.9-16.7-14.8-28-33.1-31.3-38.6-3.3-5.6-.4-8.6 2.4-11.4 2.5-2.5 5.6-6.6 8.5-9.9 2.8-3.3 3.8-5.6 5.6-9.4 1.9-3.8.9-7.1-.5-9.9-1.4-2.8-12.7-30.6-17.4-41.9-4.6-11.1-9.3-9.6-12.7-9.8-3.3-.2-7.1-.2-10.8-.2-3.8 0-9.9 1.4-15.1 7.1-5.2 5.6-19.8 19.3-19.8 47.1 0 27.8 20.3 54.6 23.1 58.3 2.8 3.8 39.8 60.8 96.3 85.2 13.4 5.6 23.9 9 32.1 11.5 13.5 4.3 25.8 3.7 35.5 2.2 10.9-1.6 33.4-13.7 38.1-26.9 4.6-13.2 4.6-24.5 3.3-26.9-1.4-2.5-5.2-3.9-10.8-6.7z"/></svg>
+    </a>
+
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburgerBtn.addEventListener('click', () => { mobileMenu.classList.toggle('active'); });
+    </script>
+</body>
+</html>
