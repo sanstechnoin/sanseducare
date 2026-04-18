@@ -1,0 +1,139 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAN Educare | Powered by SAN Technologies</title>
+    
+    <style>
+        /* --- CSS VARIABLES (The SAN Educare Identity) --- */
+        :root {
+            --san-anchor: #0F172A; /* Deep Tech Blue for trust (Parent Brand) */
+            --primary: #10B981; /* Emerald Green for Education/Growth */
+            --accent: #059669; /* Darker Green for hover states */
+            --dark: #333333;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --container-width: 1150px;
+        }
+
+        /* --- GLOBAL RESET & LAYOUT (Inherited from SAN Tech) --- */
+        * { box-sizing: border-box; }
+        body { 
+            margin: 0; 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            color: var(--dark); 
+            line-height: 1.6; 
+            background-color: var(--light); 
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3 { font-weight: 700; margin-bottom: 15px; letter-spacing: -0.5px; margin-top: 0; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; padding: 0; margin: 0; }
+        
+        .container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; width: 100%; }
+
+        /* --- HEADER --- */
+        header { 
+            background: var(--white); 
+            height: 90px; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08); 
+            display: flex; 
+            align-items: center; 
+        }
+        .header-content { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        
+        /* Text Logo as placeholder until we have the image */
+        .logo a { font-size: 1.8rem; font-weight: 800; color: var(--san-anchor); }
+        .logo span { color: var(--primary); }
+
+        /* --- NAVIGATION --- */
+        .nav-desktop ul { display: flex; gap: 30px; }
+        .nav-desktop a { font-weight: 600; font-size: 0.95rem; position: relative; color: #555; }
+        .nav-desktop a:hover { color: var(--primary); }
+        .nav-desktop a:after { 
+            content: ''; position: absolute; width: 0; height: 2px; 
+            bottom: -5px; left: 0; background-color: var(--primary); transition: 0.3s; 
+        }
+        .nav-desktop a:hover:after { width: 100%; }
+
+        /* --- HERO SECTION --- */
+        .hero { 
+            /* Gradient blends Tech Blue into Education Green */
+            background: linear-gradient(135deg, var(--san-anchor) 0%, #064e3b 100%); 
+            color: var(--white); 
+            text-align: center; 
+            min-height: 70vh;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center;
+            padding: 40px 0;
+        }
+        .hero-intro { 
+            font-size: 1rem; 
+            color: var(--primary); 
+            font-weight: 800; 
+            margin-bottom: 15px; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+        }
+        .hero h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; }
+        .hero p { 
+            font-size: 1.3rem; 
+            opacity: 0.95; 
+            max-width: 750px; 
+            margin-bottom: 40px; 
+            font-weight: 300; 
+            line-height: 1.6; 
+            margin-left: auto; 
+            margin-right: auto; 
+        }
+        .btn { 
+            display: inline-block; 
+            background: var(--primary); 
+            color: var(--white); 
+            padding: 15px 45px; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            font-size: 1.1rem; 
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3); 
+        }
+        .btn:hover { transform: translateY(-3px); background-color: var(--accent); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <a href="#">SAN <span>Educare</span></a>
+            </div>
+            
+            <div class="nav-desktop">
+                <nav>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#" style="color: var(--primary);">Student Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <span class="hero-intro">Empowering The Next Generation</span>
+            <h1>Modern Learning, <br>Powered by Technology.</h1>
+            <p>SAN Educare provides innovative educational programs and resources designed to help students achieve their maximum potential.</p>
+            <a href="#programs" class="btn">Explore Our Programs</a>
+        </div>
+    </section>
+
+</body>
+</html>
