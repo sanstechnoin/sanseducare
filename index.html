@@ -81,6 +81,39 @@
         .slider-btn { background: rgba(255,255,255,0.1); color: var(--white); border: 1px solid rgba(255,255,255,0.3); width: 50px; height: 50px; border-radius: 50%; font-size: 24px; cursor: pointer; pointer-events: auto; transition: 0.3s; display: flex; align-items: center; justify-content: center; }
         .slider-btn:hover { background: var(--primary); border-color: var(--primary); }
 
+        /* --- DESKTOP DROPDOWN LOGIC --- */
+        .dropdown { position: relative; display: inline-block; padding-bottom: 10px; margin-bottom: -10px; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: var(--white);
+            min-width: 240px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            z-index: 1000;
+            border-radius: 8px;
+            top: 100%;
+            left: -20px;
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+        .dropdown-content a {
+            color: var(--dark);
+            padding: 12px 20px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        .dropdown-content a:after { display: none; /* Removes the underline animation for dropdown items */ }
+        .dropdown-content a:last-child { border-bottom: none; }
+        .dropdown-content a:hover { background-color: #f0fdf4; color: var(--primary); padding-left: 25px; } /* Slight indent on hover for premium feel */
+        .dropdown:hover .dropdown-content { display: block; }
+        
+        /* --- MOBILE MENU OVERRIDES --- */
+        .mobile-menu { justify-content: flex-start; overflow-y: auto; max-height: 80vh; }
+        .mobile-dropdown-header { font-size: 1.2rem; font-weight: bold; color: var(--san-anchor); margin-top: 15px; border-bottom: 2px solid var(--primary); padding-bottom: 5px; display: inline-block; }
+        .mobile-sub-link { font-size: 1.05rem !important; font-weight: normal !important; color: #555 !important; padding: 8px !important; }
+
         /* --- SECTIONS --- */
         section { padding: 80px 0; }
         .section-header { text-align: center; margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto; }
@@ -129,7 +162,7 @@
 </head>
 <body>
 
-    <header>
+   <header>
         <div class="container header-content">
             <a href="index.html" class="logo">
                 <img src="san_e_logo.png" alt="SAN Educare Logo">
@@ -138,9 +171,18 @@
             <div class="nav-desktop">
                 <nav>
                     <ul>
-                        <li><a href="#services">Our Pillars</a></li>
-                        <li><a href="#about">Dr. Ashretha Avinash</a></li>
-                        <li><a href="#mission">Mission</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">Meet the Founder</a></li>
+                        
+                        <li class="dropdown">
+                            <a href="index.html#services" style="cursor: pointer;">Our Expertise &#9662;</a>
+                            <div class="dropdown-content">
+                                <a href="overseas-consulting.html">🌍 Overseas Consulting</a>
+                                <a href="neet-tuition.html">🧬 Science & NEET Tuition</a>
+                                <a href="science-projects.html">🔬 Life Science Projects</a>
+                            </div>
+                        </li>
+                        
                         <li><a href="mailto:ashretha@sanseducare.in" style="color: var(--primary);">Contact</a></li>
                     </ul>
                 </nav>
@@ -156,10 +198,15 @@
 
     <div class="mobile-menu" id="mobileMenu">
         <ul style="width: 100%;">
-            <li><a href="#services" onclick="toggleMenu()">Our Pillars</a></li>
-            <li><a href="#about" onclick="toggleMenu()">Dr. Ashretha Avinash</a></li>
-            <li><a href="#mission" onclick="toggleMenu()">Mission</a></li>
-            <li><a href="mailto:ashretha@sanseducare.in" onclick="toggleMenu()" style="color: var(--primary);">Contact</a></li>
+            <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+            <li><a href="index.html#about" onclick="toggleMenu()">Meet the Founder</a></li>
+            
+            <li><span class="mobile-dropdown-header">Our Expertise</span></li>
+            <li><a href="overseas-consulting.html" class="mobile-sub-link" onclick="toggleMenu()">Overseas Consulting</a></li>
+            <li><a href="neet-tuition.html" class="mobile-sub-link" onclick="toggleMenu()">Science & NEET Tuition</a></li>
+            <li><a href="science-projects.html" class="mobile-sub-link" onclick="toggleMenu()">Life Science Projects</a></li>
+            
+            <li style="margin-top: 15px;"><a href="mailto:ashretha@sanseducare.in" onclick="toggleMenu()" style="color: var(--primary);">Contact Us</a></li>
         </ul>
     </div>
 
@@ -206,7 +253,7 @@
                 <span class="icon">🌍</span>
                 <h3>Overseas Consulting</h3>
                 <p>Assistance in choosing the most appropriate academic paths. Counseling on study programs across all disciplines for Bachelor’s, Master's, and Doctorate degrees in the UK and Europe.</p>
-                <div class="price-tag">Packages: ₹10,000 - ₹20,000</div>
+                <div class="price-tag">Packages starting from ₹25,000</div>
                 <a href="overseas-consulting.html" class="btn" style="margin-top: 20px; padding: 10px 20px; font-size: 0.9rem;">View Details</a>
             </div>
 
@@ -214,7 +261,7 @@
                 <span class="icon">🧬</span>
                 <h3>Science & NEET Tuition</h3>
                 <p>Intensive courses for IX-XII Science (CBSE & State Board). Specialized NEET preparation and Tallentex Foundation training to ensure you are 100% familiar with the logic of science.</p>
-                <div class="price-tag">Tuition: ₹2,500 / month</div>
+                <div class="price-tag">Tuition starting from ₹4,000 / month</div>
                 <a href="neet-tuition.html" class="btn" style="margin-top: 20px; padding: 10px 20px; font-size: 0.9rem;">View Details</a>
             </div>
 
@@ -222,7 +269,7 @@
                 <span class="icon">🔬</span>
                 <h3>Life Science Projects</h3>
                 <p>Advanced modules in Immunology, Microbiology, Bioinformatics, Biotechnology, and Pharmaceuticals. We also guide and create all types of specialized school and engineering projects.</p>
-                <div class="price-tag">Projects starting from ₹2,500</div>
+                <div class="price-tag">Projects starting from ₹5,000</div>
                 <a href="science-projects.html" class="btn" style="margin-top: 20px; padding: 10px 20px; font-size: 0.9rem;">View Details</a>
             </div>
         </div>
