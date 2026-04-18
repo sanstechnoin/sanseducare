@@ -1,76 +1,188 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAN Educare | Coming Soon</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>SAN Educare | Expert Education & Overseas Consulting</title>
+    
     <style>
-        /* Custom Animations */
-        .fade-out {
-            animation: fadeOut 1.5s forwards;
-            animation-delay: 2s; 
+        /* --- CSS VARIABLES (Forest Green Academic Identity) --- */
+        :root {
+            --san-anchor: #0F172A; /* Deep Tech Blue (Parent Brand) */
+            --primary: #047857; /* Deep Academic Forest Green */
+            --accent: #059669; /* Slightly lighter green for hover */
+            --dark: #333333;
+            --light: #f8f9fa;
+            --white: #ffffff;
+            --container-width: 1150px;
         }
+
+        /* --- GLOBAL RESET & LAYOUT --- */
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: var(--dark); line-height: 1.6; background-color: var(--light); scroll-behavior: smooth; }
+        h1, h2, h3, h4 { font-weight: 700; margin-bottom: 15px; letter-spacing: -0.5px; margin-top: 0; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        p { margin: 0 0 20px 0; }
         
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 1.5s forwards;
-            animation-delay: 3s; /* Triggers after old logo fades */
-        }
+        .container { max-width: var(--container-width); margin: 0 auto; padding: 0 20px; width: 100%; }
 
-        .delay-show {
-            opacity: 0;
-            animation: fadeIn 1.5s forwards;
-            animation-delay: 4.5s;
-        }
+        /* --- HEADER --- */
+        header { background: var(--white); height: 90px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.08); display: flex; align-items: center; }
+        .header-content { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        
+        /* Monolithic Logo Styling */
+        .logo { display: flex; align-items: center; gap: 10px; font-family: 'Helvetica Neue', sans-serif; font-weight: 800; font-size: 1.8rem; }
+        .logo .brand-san { color: var(--san-anchor); }
+        .logo .brand-edu { color: var(--primary); font-weight: 600; }
 
-        @keyframes fadeOut {
-            0% { opacity: 1; transform: scale(1); }
-            100% { opacity: 0; transform: scale(0.9); display: none; }
-        }
+        /* --- NAVIGATION --- */
+        .nav-desktop ul { display: flex; gap: 30px; list-style: none; margin: 0; padding: 0; }
+        .nav-desktop a { font-weight: 600; font-size: 0.95rem; position: relative; color: #555; }
+        .nav-desktop a:hover { color: var(--primary); }
+        .nav-desktop a:after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background-color: var(--primary); transition: 0.3s; }
+        .nav-desktop a:hover:after { width: 100%; }
 
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
+        /* --- HERO --- */
+        .hero { background: linear-gradient(135deg, var(--san-anchor) 0%, #022c22 100%); color: var(--white); text-align: center; min-height: 60vh; display: flex; flex-direction: column; justify-content: center; padding: 60px 0; }
+        .hero-intro { font-size: 1rem; color: #34d399; font-weight: 800; margin-bottom: 15px; letter-spacing: 2px; text-transform: uppercase; }
+        .hero h1 { font-size: 3rem; line-height: 1.2; margin-bottom: 20px; }
+        .hero p { font-size: 1.2rem; opacity: 0.95; max-width: 750px; margin-bottom: 40px; font-weight: 300; line-height: 1.6; margin-left: auto; margin-right: auto; }
+        .btn { display: inline-block; background: var(--primary); color: var(--white); padding: 15px 40px; border-radius: 50px; font-weight: bold; font-size: 1rem; box-shadow: 0 4px 15px rgba(4, 120, 87, 0.3); }
+        .btn:hover { transform: translateY(-3px); background-color: var(--accent); }
 
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
+        /* --- SECTIONS --- */
+        section { padding: 80px 0; }
+        .section-header { text-align: center; margin-bottom: 60px; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .section-header h2 { font-size: 2.2rem; color: var(--san-anchor); }
+
+        /* --- GRID CARDS (Services) --- */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: var(--white); padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; border-bottom: 4px solid transparent; text-align: center; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-7px); border-bottom-color: var(--primary); box-shadow: 0 15px 35px rgba(0,0,0,0.1); }
+        .icon { font-size: 2.5rem; margin-bottom: 20px; display: block; }
+        .card h3 { color: var(--primary); }
+        .price-tag { margin-top: auto; font-weight: bold; color: var(--san-anchor); background: #f0fdf4; padding: 10px; border-radius: 8px; }
+
+        /* --- ABOUT FOUNDER SECTION --- */
+        .about-founder { background: var(--white); border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+        .about-grid { display: flex; gap: 60px; align-items: center; flex-wrap: wrap; }
+        .about-text { flex: 1; min-width: 300px; }
+        .about-stats { flex: 1; background: var(--san-anchor); color: white; padding: 40px; border-radius: 12px; min-width: 300px; }
+        .stat-item { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .stat-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        .stat-title { color: #34d399; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 5px; }
+
+        /* --- FOOTER --- */
+        footer { background: var(--san-anchor); color: #ccc; padding: 40px 0; text-align: center; font-size: 0.9rem; }
     </style>
 </head>
-<body class="bg-gray-900 text-white h-screen flex flex-col items-center justify-center overflow-hidden font-sans">
+<body>
 
-    <div class="relative flex flex-col items-center justify-center w-full max-w-lg text-center px-4">
-        
-        <div class="absolute inset-0 flex items-center justify-center fade-out">
-            <img src="san_old.png" alt="Old SAN Educare Logo" class="h-32 object-contain drop-shadow-lg">
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <span class="brand-san">SAN</span> <span class="brand-edu">Educare</span>
+            </div>
+            <div class="nav-desktop">
+                <nav>
+                    <ul>
+                        <li><a href="#services">Our Pillars</a></li>
+                        <li><a href="#about">Dr. Ashretha Avinash</a></li>
+                        <li><a href="#mission">Mission</a></li>
+                        <li><a href="mailto:ashretha@sanseducare.in" style="color: var(--primary);">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <span class="hero-intro">Empowering Your Academic Journey</span>
+            <h1>Your One-Stop Destination <br>for Future Career Solutions.</h1>
+            <p>From intensive science tutoring to overseas university consulting, we provide loving care, support, and strategic guidance to students of all backgrounds.</p>
+            <a href="#services" class="btn">Explore Our Programs</a>
+        </div>
+    </section>
+
+    <section id="services" class="container">
+        <div class="section-header">
+            <h2>Our Core Expertise</h2>
+            <p>We are a forward-looking group of passionate professionals offering comprehensive services to students who wish to excel academically or study, work, and settle in Europe & the UK.</p>
         </div>
 
-        <div class="fade-in-up w-full">
-            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-2">
-                <span class="text-white">SAN</span> <span class="text-blue-500">Educare</span>
-            </h1>
-            <p class="text-sm md:text-base text-gray-400 font-medium tracking-widest uppercase mb-8">
-                A SAN Technologies Company
-            </p>
-        </div>
+        <div class="grid">
+            <div class="card">
+                <span class="icon">🌍</span>
+                <h3>Overseas Consulting</h3>
+                <p>Assistance in choosing the most appropriate academic paths. Counseling on study programs across all disciplines for Bachelor’s, Master's, and Doctorate degrees in the UK and Europe.</p>
+                <div class="price-tag">Packages: ₹10,000 - ₹20,000</div>
+            </div>
 
-        <div class="delay-show w-full max-w-md mx-auto">
-            <p class="text-gray-300 mb-6 text-lg">The future of learning is loading. Be the first to know.</p>
-            <form class="flex flex-col sm:flex-row gap-3">
-                <input type="email" placeholder="Enter your email" required
-                    class="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-500 transition-colors">
-                <button type="submit" 
-                    class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors whitespace-nowrap">
-                    Notify Me
-                </button>
-            </form>
-        </div>
+            <div class="card">
+                <span class="icon">🧬</span>
+                <h3>Science & NEET Tuition</h3>
+                <p>Intensive courses for IX-XII Science (CBSE & State Board). Specialized NEET preparation and Tallentex Foundation training to ensure you are 100% familiar with the logic of science.</p>
+                <div class="price-tag">Tuition: ₹2,500 / month</div>
+            </div>
 
-    </div>
+            <div class="card">
+                <span class="icon">🔬</span>
+                <h3>Life Science Projects</h3>
+                <p>Advanced modules in Immunology, Microbiology, Bioinformatics, Biotechnology, and Pharmaceuticals. We also guide and create all types of specialized school and engineering projects.</p>
+                <div class="price-tag">Projects starting from ₹2,500</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-founder">
+        <div class="container about-grid">
+            <div class="about-text">
+                <h2 style="color: var(--san-anchor);">Meet the Founder</h2>
+                <h3 style="color: var(--primary);">Dr. rer. nat. Ashretha Avinash</h3>
+                <p>Dr. Ashretha Avinash is the founder of SAN Educare. Her background in science and management allows her a mindful but competitive approach. Fueled by a passion for understanding the nuances of learning science, she considers herself a ‘forever student.’</p>
+                <p>She believes mindfulness in the workplace is key to success—a tenet she lives out through yoga and meditation. Currently working as a freelance Life Science Consultant and pursuing an MBA, she brings global academic rigor to every student she mentors.</p>
+                <a href="mailto:ashretha@sanseducare.in" class="btn" style="margin-top: 15px;">Connect with Dr. Ashretha</a>
+            </div>
+            
+            <div class="about-stats">
+                <h3 style="margin-bottom: 25px; border-bottom: 2px solid var(--primary); padding-bottom: 10px;">Academic & Professional Journey</h3>
+                
+                <div class="stat-item">
+                    <span class="stat-title">Founder (2020 – Present)</span>
+                    SAN Educare, India & Germany
+                </div>
+                <div class="stat-item">
+                    <span class="stat-title">Post-Doctoral Fellow (2019 – 2020)</span>
+                    Munich, Germany
+                </div>
+                <div class="stat-item">
+                    <span class="stat-title">Doctoral Fellow (2013 – 2019)</span>
+                    Munich, Germany
+                </div>
+                <div class="stat-item">
+                    <span class="stat-title">Research Assistant (2010 – 2013)</span>
+                    Chennai, India
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="mission" class="container" style="text-align: center; padding-bottom: 100px;">
+        <div class="section-header">
+            <h2>Our Mission</h2>
+        </div>
+        <p style="font-size: 1.2rem; font-style: italic; max-width: 800px; margin: 0 auto; color: #555;">
+            "To provide loving care, support, and encouragement equally to students of all backgrounds, creating a harmonious multicultural learning environment where we take pride in, praise, and promote all that is excellent in our students."
+        </p>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 SAN Technologies. All rights reserved for SAN Educare.</p>
+            <p style="font-size: 0.8rem; color: #888; margin-top: 10px;">Contact: ashretha@sanseducare.in</p>
+        </div>
+    </footer>
 
 </body>
 </html>
