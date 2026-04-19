@@ -127,6 +127,26 @@
         .card h3 { color: var(--primary); }
         .price-tag { margin-top: auto; font-weight: bold; color: var(--san-anchor); background: #f0fdf4; padding: 10px; border-radius: 8px; }
 
+        /* --- HIERARCHY LAYOUT UPDATES --- */
+        .featured-card { background: var(--san-anchor); color: var(--white); padding: 50px; border-radius: 12px; margin-bottom: 30px; display: flex; align-items: center; gap: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.15); transition: 0.3s; border-left: 5px solid #34d399; }
+        .featured-card:hover { transform: translateY(-5px); }
+        .featured-icon { font-size: 4rem; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .featured-content { flex: 1; text-align: left; }
+        .featured-content h3 { color: #34d399; font-size: 2.2rem; margin-bottom: 15px; }
+        .featured-content p { color: #e2e8f0; font-size: 1.1rem; line-height: 1.7; margin-bottom: 20px; }
+        .featured-content .price-tag { background: rgba(255,255,255,0.1); color: var(--white); display: inline-block; width: auto; padding: 10px 20px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.2); margin-bottom: 25px; }
+        .featured-content .btn { background: #34d399; color: var(--san-anchor); display: inline-block; width: auto; padding: 15px 40px; }
+        .featured-content .btn:hover { background: var(--white); }
+
+        .secondary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+
+        @media (max-width: 900px) {
+            .featured-card { flex-direction: column; text-align: center; padding: 30px 20px; gap: 20px; border-left: none; border-top: 5px solid #34d399; }
+            .featured-content { text-align: center; }
+            .featured-content h3 { font-size: 1.8rem; }
+            .secondary-grid { grid-template-columns: 1fr; }
+        }
+
         /* --- ABOUT FOUNDER SECTION --- */
         .about-founder { background: var(--white); border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
         .about-grid { display: flex; gap: 60px; align-items: center; flex-wrap: wrap; }
@@ -242,42 +262,77 @@
         </div>
     </section>
 
-    <section id="services" class="container">
+    <section id="services" class="container" style="padding-top: 60px;">
+        <section id="services" class="container">
         <div class="section-header">
             <h2>Our Core Expertise</h2>
             <p>We are a forward-looking group of passionate professionals offering comprehensive services to students who wish to excel academically or study, work, and settle in Europe & the UK.</p>
         </div>
 
-        <div class="grid">
-            <div class="card">
-                <span class="icon">🌍</span>
+        <div class="featured-card">
+            <div class="featured-icon">🌍</div>
+            <div class="featured-content">
                 <h3>Overseas Consulting</h3>
-                <p>Assistance in choosing the most appropriate academic paths. Counseling on study programs across all disciplines for Bachelor’s, Master's, and Doctorate degrees in the UK and Europe.</p>
-                <div class="price-tag">Packages starting from ₹25,000</div>
-                <a href="overseas-consulting.html" class="btn" style="margin-top: 20px; padding: 10px 20px; font-size: 0.9rem;">View Details</a>
+                <p>Expert, end-to-end guidance from a PhD scholar who successfully navigated the German and European academic systems. We provide deep profile evaluation, university selection across the UK and Europe, SOP assistance, and zero-error visa guidance.</p>
+                <div class="price-tag">Premium Packages: ₹25,000 - ₹45,000</div>
+                <br>
+                <a href="overseas-consulting.html" class="btn">Explore Consulting Services</a>
             </div>
+        </div>
 
-            <div class="card">
+        <div class="secondary-grid">
+            <div class="card" style="align-items: center; text-align: center;">
                 <span class="icon">🧬</span>
-                <h3>Science & NEET Tuition</h3>
-                <p>Intensive courses for IX-XII Science (CBSE & State Board). Specialized NEET preparation and Tallentex Foundation training to ensure you are 100% familiar with the logic of science.</p>
-                <div class="price-tag">Tuition starting from ₹4,000 / month</div>
-                <a href="neet-tuition.html" class="btn" style="margin-top: 20px; padding: 10px 20px; font-size: 0.9rem;">View Details</a>
+                <h3 style="font-size: 1.6rem;">Science & NEET Tuition</h3>
+                <p>Intensive courses for IX-XII Science (CBSE & State Board). Specialized NEET preparation and Tallentex Foundation training to ensure 100% conceptual clarity.</p>
+                <div class="price-tag">Tuition: ₹4,500 / month</div>
+                <a href="neet-tuition.html" class="btn">View Details</a>
             </div>
 
-            <div class="card">
+            <div class="card" style="align-items: center; text-align: center;">
                 <span class="icon">🔬</span>
-                <h3>Life Science Projects</h3>
-                <p>Advanced modules in Immunology, Microbiology, Bioinformatics, Biotechnology, and Pharmaceuticals. We also guide and create all types of specialized school and engineering projects.</p>
+                <h3 style="font-size: 1.6rem;">Life Science Projects</h3>
+                <p>Advanced modules in Immunology, Microbiology, Bioinformatics, Biotechnology, and Pharmaceuticals. We design and guide specialized engineering projects.</p>
                 <div class="price-tag">Projects starting from ₹5,000</div>
-                <a href="science-projects.html" class="btn" style="margin-top: 20px; padding: 10px 20px; font-size: 0.9rem;">View Details</a>
+                <a href="science-projects.html" class="btn">View Details</a>
             </div>
         </div>
     </section>
 
-    <section id="about" class="about-founder">
+
+        <section id="why-us" class="container" style="padding-top: 40px; padding-bottom: 40px;">
+        <div class="section-header" style="margin-bottom: 40px;">
+            <h2>Why Choose SAN Educare?</h2>
+            <p>We bridge the gap between standard local tutoring and elite global academic standards.</p>
+        </div>
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="card" style="padding: 30px 20px; text-align: center; border-top: 4px solid var(--primary); border-bottom: none;">
+                <span style="font-size: 2.5rem; display: block; margin-bottom: 15px;">🇩🇪</span>
+                <h4 style="color: var(--san-anchor); margin-bottom: 10px;">Real-World European Experience</h4>
+                <p style="font-size: 0.95rem;">Guidance directly from a scientist who successfully navigated the German academic and research systems.</p>
+            </div>
+            <div class="card" style="padding: 30px 20px; text-align: center; border-top: 4px solid var(--primary); border-bottom: none;">
+                <span style="font-size: 2.5rem; display: block; margin-bottom: 15px;">🧠</span>
+                <h4 style="color: var(--san-anchor); margin-bottom: 10px;">Logic Over Rote Learning</h4>
+                <p style="font-size: 0.95rem;">We refuse to teach memorization. We build 100% conceptual clarity for board exams and highly competitive tests like NEET.</p>
+            </div>
+            <div class="card" style="padding: 30px 20px; text-align: center; border-top: 4px solid var(--primary); border-bottom: none;">
+                <span style="font-size: 2.5rem; display: block; margin-bottom: 15px;">🎯</span>
+                <h4 style="color: var(--san-anchor); margin-bottom: 10px;">Bespoke Mentorship</h4>
+                <p style="font-size: 0.95rem;">No generic sales agents. You deal directly with the founder for customized career mapping and university placement.</p>
+            </div>
+        </div>
+        </section>
+    
+
+        <section id="about" class="about-founder">
         <div class="container about-grid">
-            <div class="about-text">
+            
+            <div class="about-image" style="flex: 0 0 250px; text-align: center;">
+                <img src="founder.jpg" alt="Dr. Ashretha Avinash" style="width: 100%; max-width: 250px; border-radius: 50%; border: 5px solid var(--light); box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+            </div>
+
+            <div class="about-text" style="flex: 2; min-width: 300px;">
                 <h2 style="color: var(--san-anchor);">Meet the Founder</h2>
                 <h3 style="color: var(--primary);">Dr. rer. nat. Ashretha Avinash</h3>
                 <p>Dr. Ashretha Avinash is the founder of SAN Educare. Her background in science and management allows her a mindful but competitive approach. Fueled by a passion for understanding the nuances of learning science, she considers herself a ‘forever student.’</p>
@@ -285,32 +340,33 @@
                 <a href="mailto:ashretha@sanseducare.in" class="btn" style="margin-top: 15px;">Connect with Dr. Ashretha</a>
             </div>
             
-            <div class="about-stats">
+            <div class="about-stats" style="flex: 1.5; min-width: 300px;">
                 <h3 style="margin-bottom: 25px; border-bottom: 2px solid var(--primary); padding-bottom: 10px;">Academic & Professional Journey</h3>
                 
-                <div class="stat-item">
-                    <span class="stat-title">Founder (2020 - Present)</span>
-                    SAN Educare, India & Germany
-                </div>
                 <div class="stat-item">
                     <span class="stat-title">MBA in Management (Dec 2025)</span>
                     University of the People
                 </div>
                 <div class="stat-item">
+                    <span class="stat-title">Founder (Present)</span>
+                    SAN Educare, India & Germany
+                </div>
+                <div class="stat-item">
                     <span class="stat-title">Post-Doctoral Fellow (May 2020)</span>
-                    Munich, Germany
+                    LMU, Munich, Germany
                 </div>
                 <div class="stat-item">
                     <span class="stat-title">Doctoral Fellow (Dec 2018)</span>
-                    Munich, Germany
+                    LMU, Munich, Germany
                 </div>
                 <div class="stat-item">
                     <span class="stat-title">Research Assistant (June 2013)</span>
-                    Chennai, India
+                    Anna University, Chennai, India
                 </div>
             </div>
         </div>
     </section>
+
 
     <section id="mission" class="container" style="text-align: center; padding-bottom: 100px;">
         <div class="section-header">
